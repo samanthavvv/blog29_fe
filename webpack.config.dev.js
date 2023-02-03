@@ -33,7 +33,7 @@ module.exports = {
             },
             {
                 // test: /\.less$/,
-                test: /\.css$/,
+                test: /\.css$/,     //可加载css 文件
                 use: [
                     { loader: "style-loader" },
                     { loader: "css-loader" },
@@ -60,7 +60,8 @@ module.exports = {
         proxy: {
             '/api': {
                 target: 'http://127.0.0.1:8000',
-                changeOrigin: true
+                changeOrigin: true,
+                pathRewrite: {'^/api': ''}
             }
         }
     }

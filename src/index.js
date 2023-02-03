@@ -27,6 +27,7 @@ class App extends React.Component {
     render() {
         return <Router>
             <div>
+                {/* 首页增加导航栏链接，方便页面切换 */}
                 <ul>
                     <li><Link to="/">主页</Link></li>
                     <li><Link to="/login">登陆</Link></li>
