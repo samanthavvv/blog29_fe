@@ -5,5 +5,5 @@ import React from "react";
  * @param {*} obj {a:100}
  */
 
-const inject = obj => Comp => props => <Comp {...obj} {...props}/>;
+const inject = obj => Comp => props => <Comp {...obj} {...props} />;
 export {inject};
