@@ -4,7 +4,7 @@ import '../../css/login_reg.css'
 import { userService as service } from "../../service/user";
 import { observer } from "mobx-react";  //给组件用
 import { inject } from "../../utils";
-
+    
 // const service =new UserService();
 
 // export default class Login extends React.Component {

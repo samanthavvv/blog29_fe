@@ -3,8 +3,13 @@ import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import Login from "./component/login";
 import Reg from "./component/register";
-// import { observable } from "mobx";
-// import { observer } from "mobx-react";  //给React 组件用的
+import { Menu, Icon } from 'antd';
+import 'antd/lib/menu/style'
+import Pub from "./component/pub";
+import { Layout } from 'antd';
+import 'antd/lib/layout/style'
+
+const { Header, Footer, Content } = Layout;
 
 const Home = props => <h5>Home</h5>;
 const About = props => <h5>About</h5>;
@@ -14,27 +19,49 @@ const Profile = props => <h5>用户信息</h5>;
 
 
 class App extends React.Component {
+    state = {
+        current: 'home',
+    };
+
+    handleClick = e => {
+        console.log('click ', e);
+        this.setState({
+            current: e.key,
+        });
+    };
+
     render() {
         return <Router>
-            <div>
+             <Layout>
+                <Header >
                 {/* 首页增加导航栏链接，方便页面切换 */}
-                <ul>
-                    <li><Link to="/">主页</Link></li>
-                    <li><Link to="/login">登陆</Link></li>
-                    <li><Link to="/reg">注册</Link></li>
-                    <li><Link to="/about">关于</Link></li>
-                </ul>
+                <Menu onClick={this.handleClick.bind(this)} selectedKeys={[this.state.current]} 
+                defaultSelectedKeys={[this.state.current]} mode="horizontal" theme="dark">
+                    <Menu.Item key="home"><Link to="/"><Icon type="mail" />主页</Link></Menu.Item>
+                    <Menu.Item key="login"><Link to="/login"><Icon type="login" />登陆</Link></Menu.Item>
+                    <Menu.Item key="reg"><Link to="/reg"><Icon type="plus" />注册</Link></Menu.Item>
+                    <Menu.Item key="pub"><Link to="/pub"><Icon type="plus" />写博</Link></Menu.Item>
+                    <Menu.Item key="about"><Link to="/about"><Icon type="enter" />关于</Link></Menu.Item>
+                </Menu>
+                </Header>
+
+                <Content style={{padding: '10px 50px'}}>
                 <Switch>
                     {/* 如果路径是 / 或者 index/ ，就路由到Home 组件 */}
                     <Route exact path={['/', '/index']} component={Home}></Route>
                     <Route path='/login' component={Login}></Route>
                     <Route path='/reg' component={Reg}></Route>
                     <Route path='/about' component={About}></Route>
+                    <Route path='/pub' component={Pub}></Route>
                     <Route path='/profile' component={Profile}></Route>
                     <Route component={Default}></Route>
                 </Switch>
+                </Content>
+
+                <Footer style={{textAlign: 'center'}}>
                 <Route component={Always}></Route>
-            </div>
+                </Footer>
+            </Layout>
         </Router>
     }
 };

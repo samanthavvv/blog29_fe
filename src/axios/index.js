@@ -10,7 +10,7 @@ export default class Axios {
     // 作为其它组件的工具使用，通过 static 语句设置为静态方法（类方法）
     // static post(url, data, config) {     // 形参可以分别传入，也可以通过一个对象传入
     static post(params) {
-        console.log('自己封装的axios post对象')
+        // console.log('自己封装的axios post对象')
 
         return new Promise((resolve, reject) => {
             axios.post(
@@ -32,17 +32,17 @@ export default class Axios {
                         resolve(data);    // {code:3,msg:xxx}
                     }
                 }
-            ),
-            reason => { //失败给出失败的理由
-                    console.log('向后端传输数据时异常', error)
-                    reject(reason)
+            ).catch(
+                error => {
+                    reject(error.response)
                 }
+            )
         }) 
 
     };
 
     static get(params){
-        console.log('自己封装的axios get 对象')
+        // console.log('自己封装的axios get 对象')
 
         return new Promise((resolve, reject) => {
             axios.get(
