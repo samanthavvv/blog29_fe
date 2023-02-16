@@ -13,6 +13,10 @@ import 'antd/lib/Modal/style'
 @inject({ service })
 @observer   //将react 组件转换为响应式组件
 export default class Pub extends React.Component {
+    constructor(props){
+        super(props)
+        this.props.service.getToken()
+    }
 
     // 处理发布点击
     handleSubmit(e) {

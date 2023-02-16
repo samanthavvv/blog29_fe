@@ -41,6 +41,7 @@
     "axios": "^0.16.2",
     "babel-polyfill": "^6.23.0",
     "babel-runtime": "^6.23.0",
+    "js-cookie": "2.1.1",
     "mobx": "^4.6.0",
     "mobx-react": "^5.4.2",
     "mobx-react-devtools": "^4.2.11",
