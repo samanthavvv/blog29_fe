@@ -4,12 +4,14 @@ import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import Login from "./component/login";
 import Reg from "./component/register";
 import Profile from "./component/profile/index.js";
+import Detail from "./component/detail";
 
 import Pub from "./component/pub";
 import { Layout } from 'antd';
 import 'antd/lib/layout/style'
 import { Menu, Icon } from 'antd';
 import 'antd/lib/menu/style'
+
 
 const { Header, Footer, Content } = Layout;
 
@@ -56,6 +58,7 @@ class App extends React.Component {
                     <Route path='/about' component={About}></Route>
                     <Route path='/pub' component={Pub}></Route>
                     <Route path='/profile' component={Profile}></Route>
+                    <Route path='/posts/:id' component={Detail}></Route>
                     <Route component={Default}></Route>
                 </Switch>
                 </Content>

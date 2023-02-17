@@ -8,6 +8,7 @@ import Cookies from "js-cookie";
 
 class PostService{
     @observable success = false     //设置被观察者对象的属性
+    @observable post = {}
 
     // 发布方法
     put(title, content) {
@@ -51,6 +52,22 @@ class PostService{
                 console.log('成功拿到csrftoken', Cookies.get('csrftoken'))
             }
         )
+    };
+
+    getPost(id){
+        console.log('向后端请求详情页',id)
+
+        Axios.get({
+            url: '/posts/' + id + '/'
+        }).then(
+            value => {
+                this.post = value.post || {}
+                console.log('成功获取到详情页',id)
+            }
+        ),
+        reason => {
+            message.warning(reason.msg || '获取详情页错误')
+        }
     }
 };
 
