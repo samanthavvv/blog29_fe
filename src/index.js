@@ -5,6 +5,7 @@ import Login from "./component/login";
 import Reg from "./component/register";
 import Profile from "./component/profile/index.js";
 import Detail from "./component/detail";
+import L from "./component/list"
 
 import Pub from "./component/pub";
 import { Layout } from 'antd';
@@ -44,7 +45,8 @@ class App extends React.Component {
                     <Menu.Item key="home"><Link to="/"><Icon type="mail" />主页</Link></Menu.Item>
                     <Menu.Item key="login"><Link to="/login"><Icon type="login" />登陆</Link></Menu.Item>
                     <Menu.Item key="reg"><Link to="/reg"><Icon type="plus" />注册</Link></Menu.Item>
-                    <Menu.Item key="pub"><Link to="/pub"><Icon type="plus" />写博</Link></Menu.Item>
+                    <Menu.Item key="pub"><Link to="/pub"><Icon type="eidt" />写博</Link></Menu.Item>
+                    <Menu.Item key="list"><Link to="/list"><Icon type="bars" />全部博</Link></Menu.Item>
                     <Menu.Item key="about"><Link to="/about"><Icon type="enter" />关于</Link></Menu.Item>
                 </Menu>
                 </Header>
@@ -59,6 +61,7 @@ class App extends React.Component {
                     <Route path='/pub' component={Pub}></Route>
                     <Route path='/profile' component={Profile}></Route>
                     <Route path='/posts/:id' component={Detail}></Route>
+                    <Route path='/list' component={L}></Route>
                     <Route component={Default}></Route>
                 </Switch>
                 </Content>

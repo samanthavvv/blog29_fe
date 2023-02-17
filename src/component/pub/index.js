@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, Redirect } from "react-router-dom";
 import '../../css/login_reg.css'
-import { postService as service } from "../../service/pub";
+import { postService as service } from "../../service/post";
 import { observer } from "mobx-react";  //给组件用
 import { inject } from "../../utils";
 import { Form, Input, Button, Modal } from 'antd';  //Modal 为对话框组件

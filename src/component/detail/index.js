@@ -1,5 +1,5 @@
 import React from "react";
-import { postService as service } from "../../service/pub";
+import { postService as service } from "../../service/post";
 import { observer } from "mobx-react";  //给组件用
 import { inject } from "../../utils";
 import mtz from 'moment-timezone'

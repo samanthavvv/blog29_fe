@@ -9,6 +9,7 @@ import Cookies from "js-cookie";
 class PostService{
     @observable success = false     //设置被观察者对象的属性
     @observable post = {}
+    @observable posts = {}  //posts, pagination
 
     // 发布方法
     put(title, content) {
@@ -54,6 +55,7 @@ class PostService{
         )
     };
 
+    //请求博客详情页方法
     getPost(id){
         console.log('向后端请求详情页',id)
 
@@ -68,7 +70,26 @@ class PostService{
         reason => {
             message.warning(reason.msg || '获取详情页错误')
         }
-    }
+    };
+
+    // 获取全部博客
+    list(params){       //无格式对象，或者 URLSearchParams 对象
+        Axios.get({
+            'url':'/posts/',
+            config:{
+                'params':params
+            }
+        }).then(
+            value => {
+                this.posts = value || {}
+                console.log('成功获取到全部博文', this.posts)
+            }
+        ),
+        reason => {
+            message.warning(reason.msg || '获取全部博文错误')
+        }
+    };
+
 };
 
 const postService = new PostService();  // 暴露服务。多个组件共享一个服务实例，共享服务属性信息
