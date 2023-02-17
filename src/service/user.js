@@ -112,6 +112,22 @@ class UserService{
                 console.log('xxxxxxxxxxxx 重新请求后端验证码出错', reason)
             }
         )
+    };
+
+    // 登出方法
+    logout(){
+        console.log('登出 logout 方法')
+
+        Axios.get({
+            url:'/users/logout/'
+        }).then(
+            value => {
+                this.isLogin = false;
+            },
+            reason => {
+                message.error('登出失败')
+            }
+        )
     }
 };
 
