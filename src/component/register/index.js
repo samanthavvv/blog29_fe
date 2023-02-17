@@ -40,8 +40,8 @@ export default class Reg extends React.Component {
 
         // 判断被观察者对象是否有变化：标记是否注册
         if (this.props.service.isReg){
-            return <Redirect to='/profile' />
-        }
+            return <Redirect to='/login' />
+        };  
 
         return (
             <div className="login-page">

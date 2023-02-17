@@ -8,6 +8,7 @@ class UserService{
     @observable isLogin = false     //设置被观察者对象的属性
     @observable isReg = false
     @observable captcha = {}   //验证码
+    @observable isLogout = false
 
     // 登录方法
     login(name, password, challenge, key) {
@@ -123,6 +124,7 @@ class UserService{
         }).then(
             value => {
                 this.isLogin = false;
+                this.isLogout = true;
             },
             reason => {
                 message.error('登出失败')

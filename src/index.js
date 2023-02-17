@@ -41,7 +41,6 @@ class App extends React.Component {
                 defaultSelectedKeys={[this.state.current]} mode="horizontal" theme="dark">
                     <Menu.Item key="home"><Link to="/"><Icon type="mail" />主页</Link></Menu.Item>
                     <Menu.Item key="login"><Link to="/login"><Icon type="login" />登陆</Link></Menu.Item>
-                    <Menu.Item key="logout"><Link to="/profile"><Icon type="logout" />登出</Link></Menu.Item>
                     <Menu.Item key="reg"><Link to="/reg"><Icon type="plus" />注册</Link></Menu.Item>
                     <Menu.Item key="pub"><Link to="/pub"><Icon type="plus" />写博</Link></Menu.Item>
                     <Menu.Item key="about"><Link to="/about"><Icon type="enter" />关于</Link></Menu.Item>

@@ -18,9 +18,9 @@ export default class Profile extends React.Component {
     //渲染页面
     render() {
         console.log('profile render-------------------------------------')
-
+        console.log(this.props.service.isLogout)
         //判断是否登出
-        if(!this.props.service.isLogin){
+        if(this.props.service.isLogout){
             return <Redirect to='/login' />
         }
 

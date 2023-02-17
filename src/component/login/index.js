@@ -25,7 +25,9 @@ export default class Login extends React.Component {
     // 构造器,渲染整个login 页面之前，向后台请求验证码信息
     constructor(props){
         super(props);
-        this.props.service.getCaptcha();
+        if(!this.props.isLogin){
+            this.props.service.getCaptcha();
+        }
     }
 
     // 处理刷新验证码
@@ -58,10 +60,10 @@ export default class Login extends React.Component {
         
         const {key='', image_url=''} = this.props.service.captcha;
 
-        // 判断被观察者对象是否有变化：标记是否注册
-        if (this.props.service.isReg){
-            return <Redirect to='/profile' />
-        }
+        // // 判断被观察者对象是否有变化：标记是否注册
+        // if (this.props.service.isReg){
+        //     return <Redirect to='/profile' />
+        // }
 
         // 判断被观察者对象是否有变化：标记是否登录
         if (this.props.service.isLogin){
